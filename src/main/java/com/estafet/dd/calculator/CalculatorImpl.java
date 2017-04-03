@@ -6,6 +6,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.ws.Endpoint;
 
 /**
  * Created by Delcho Delov on 1.3.2017 г..
@@ -29,18 +30,18 @@ public class CalculatorImpl implements Calculator {
 		}
 
 		public static void main(String[] args) {
-//				Endpoint.publish("http://localhost:9876/ws/CalculatorImpl", new CalculatorImpl());
-				Calculator calculator = new CalculatorImpl();
-				if(args.length<2){
-						final Double res = calculator.add(70d, 2d);
-						System.out.println("res = " + res);
-				}else{
-//						Scanner scanner = new Scanner(System.in);
-//						double i = scanner.nextDouble();
-//						double k = scanner.nextDouble();
-//						final Double res = calculator.add(i, k);
-						final Double res = calculator.add(Double.valueOf(args[0]), Double.valueOf(args[1]));
-						System.out.println("res = " + res);
-				}
+//				Calculator calculator = new CalculatorImpl();
+//				if(args.length<2){
+//						final Double res = calculator.add(70d, 2d);
+//						System.out.println("res = " + res);
+//				}else{
+////						Scanner scanner = new Scanner(System.in);
+////						double i = scanner.nextDouble();
+////						double k = scanner.nextDouble();
+////						final Double res = calculator.add(i, k);
+//						final Double res = calculator.add(Double.valueOf(args[0]), Double.valueOf(args[1]));
+//						System.out.println("res = " + res);
+//				}
+				Endpoint.publish("http://calculator-calculator.192.168.42.182.nip.io:8080/ws/CalculatorImpl", new CalculatorImpl());
 		}
 }
